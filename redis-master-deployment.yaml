@@ -20,10 +20,6 @@ spec:
     spec:
       containers:
       - name: master
-        image: k8s.gcr.io/redis:e2e  # or just image: redis
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
+        image: redis:5.0.8-alpine  # or just image: redis
         ports:
         - containerPort: 6379
