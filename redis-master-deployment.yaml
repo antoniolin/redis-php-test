@@ -5,6 +5,10 @@ metadata:
   labels:
     app: redis
 spec:
+  volumes:
+    -name: test-storage
+     persistentVolumeClaim:
+       claimName: redis-pv-claim
   selector:
     matchLabels:
       app: redis
