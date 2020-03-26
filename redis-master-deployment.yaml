@@ -5,10 +5,6 @@ metadata:
   labels:
     app: redis
 spec:
-  volumes:
-    -name: test-storage
-     persistentVolumeClaim:
-       claimName: redis-pv-claim
   selector:
     matchLabels:
       app: redis
@@ -27,6 +23,7 @@ spec:
         image: redis:5.0.8-alpine  # or just image: redis
         ports:
         - containerPort: 6379
-        volumeMounts:
-        - mountPath: "/home/redis-test"
-          name: test-storage
+      volumes:
+        - name: test-storage
+          persistentVolumeClaim: 
+            claimName: redis-pv-claim
