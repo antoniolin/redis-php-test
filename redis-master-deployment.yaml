@@ -7,13 +7,17 @@ spec:
   selector:
     matchLabels:
       app: redis
+      role: master
+      tier: backend
   template:
     metadata:
       labels:
         app: redis
+        role: master
+        tier: backend
     spec:
       containers:
-      - name: redis
+      - name: master
         image: redis:5.0.8-alpine
         ports:
         - containerPort:6379
