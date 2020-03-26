@@ -23,3 +23,6 @@ spec:
         image: redis:5.0.8-alpine  # or just image: redis
         ports:
         - containerPort: 6379
+        volumeMounts:
+        - mountPath: "/home/redis-test"
+          name: test-storage
